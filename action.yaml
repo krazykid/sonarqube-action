@@ -1,0 +1,53 @@
+name: "SonarQube Scan"
+description: "Static Code Analysis with SonarQube."
+author: "Ernie Kim"
+branding:
+  icon: "shield"
+  color: "blue"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+inputs:
+  host:
+    description: "SonarQube server URL"
+    required: true
+  projectKey:
+    description: "The project's unique key. Allowed characters are: letters, numbers, -, _, . and :, with at least one non-digit."
+    required: false
+    default: ""
+  projectName:
+    description: "Name of the project that will be displayed on the web interface."
+    required: false
+    default: ""
+  projectVersion:
+    description: "The project version."
+    required: false
+    default: ""
+  projectBranch:
+    description: "Git branch"
+    required: false
+  projectBaseDir:
+    description: "Set the sonar.projectBaseDir analysis property"
+    required: false
+    default: "."
+  login:
+    description: "Login or authentication token of a SonarQube user"
+    required: true
+  password:
+    description: "Password that goes with the sonar.login username. This should be left blank if an authentication token is being used."
+    required: false
+  repoSlug:
+    description: "Repository Name"
+    required: true
+  action:
+    description: "git action"
+    required: false
+  prKey:
+    description: "Pull request key"
+    required: false
+  baseBranch:
+    description: "Base branch"
+    required: false
+  featureBranch:
+    description: "Feature branch"
+    required: false
